@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Java Script Demo 9</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .display_flex {
+        display: flex;
+        justify-content: center;
+      }
+
+      .text_align_center {
+        text-align: center;
+      }
+
+      .flex_wrap {
+        flex-wrap: wrap;
+      }
+
+      .flex_no_wrap {
+        flex-wrap: nowrap;
+      }
+
+      .container {
+        width: 260;
+        text-align: center;
+        border-radius: 10px;
+        background-color: black;
+        margin-top: 5px;
+      }
+      button,
+      input {
+        width: 70px;
+        border: 1px solid black;
+        border-radius: 10px;
+        font-size: 1.5em;
+        margin: 5px;
+        text-align: center;
+        height: 75px;
+        background-color: rgb(162, 162, 162);
+      }
+      .new {
+        width: 60px;
+        height: 100%;
+        font-size: 1em;
+        margin: auto;
+      }
+      input {
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h3 class="text_align_center">
+      <i><u> DEMO-9:</u></i>
+    </h3>
+    <br />
+    <h3 class="text_align_center">Clone Increment Decrement Div on Click.</h3>
+    <br />
+    <button class="new" id="new" onclick="clone();">New</button>
+    <div id="primary">
+      <div class="display_flex" id="counter">
+        <div class="container justify">
+          <button class="number_0" onclick="Decrement(this.className);">
+            -
+          </button>
+          <input type="text" id="number_0" value="0" readonly />
+          <button class="number_0" onclick="Increment(this.className);">
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="secondary"></div>
+  </body>
+</html>
+
+<script>
+  var clicks = 0;
+  function clone() {
+    clicks += 1;
+    let cloned_counter = document.querySelector("#counter").cloneNode(true);
+    cloned_counter.id = "clone_div_" + clicks;
+    cloned_counter.getElementsByTagName("button")[0].className =
+      "number_" + clicks;
+    cloned_counter.getElementsByTagName("input")[0].id = "number_" + clicks;
+    cloned_counter.getElementsByTagName("input")[0].value = 0;
+    cloned_counter.getElementsByTagName("button")[1].className =
+      "number_" + clicks;
+    document.querySelector("#secondary").appendChild(cloned_counter);
+  }
+
+  function Increment(button_class) {
+    // (Button class and input_id are equal)
+    num = document.getElementById(button_class);
+    num.value = parseInt(num.value) + 1;
+  }
+  function Decrement(button_class) {
+    num = document.getElementById(button_class);
+    num.value = parseInt(num.value) - 1;
+  }
+</script>

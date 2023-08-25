@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Java Script Demo 3</title>
+    <style>
+      .display_flex {
+        display: flex;
+        justify-content: center;
+      }
+      .text_align_center {
+        text-align: center;
+      }
+      #price, #qty{
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h3 class="text_align_center">
+      <i><u> DEMO-3:</u></i>
+    </h3>
+    <div class="display_flex">
+      Price<input
+        type="text"
+        name="price"
+        id="price"
+        oninput="total_price()"
+      />X Qty.<input type="text" name="qty" id="qty" oninput="total_price()" />
+    </div>
+    <p class="text_align_center">Total Price:</p>
+    <p class="text_align_center" id="result"></p>
+    <script>
+      function total_price() {
+        var price = document.getElementById("price").value;
+        var qty = document.getElementById("qty").value;
+        document.getElementById("result").innerHTML = price * qty;
+      }
+    </script>
+  </body>
+</html>

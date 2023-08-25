@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Java Script Demo 6</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .display_flex {
+      display: flex;
+      justify-content: center;
+    }
+
+    .text_align_center {
+      text-align: center;
+    }
+
+    .flex_wrap {
+      flex-wrap: wrap;
+    }
+
+    .flex_no_wrap {
+      flex-wrap: nowrap;
+    }
+
+    .container {
+      width: 50%;
+      background-color: rgb(224, 224, 224);
+    }
+
+    .input {
+      margin-top: 20px;
+    }
+
+    .number_div {
+      width: 10%;
+    }
+
+    .range_div {
+      width: 80%;
+      vertical-align: middle;
+    }
+
+    .letter_div {
+      width: 10%;
+      text-align: center;
+      vertical-align: middle;
+      /* background-color: rgb(155, 155, 155); */
+    }
+
+    .letter {
+      padding: 5px;
+    }
+
+    .number {
+      width: 100%;
+      padding: 5px;
+    }
+
+    .range {
+      vertical-align: middle;
+      padding: 5px;
+      margin-left: 20px;
+      -webkit-appearance: none;
+      width: 90%;
+      height: 64%;
+    }
+
+    .range::-webkit-slider-thumb {
+      appearance: none;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: white;
+      cursor: pointer;
+    }
+
+    .red {
+      background-image: linear-gradient(to right, black, red);
+    }
+
+    .green {
+      background-image: linear-gradient(to right, black, lime);
+    }
+
+    .blue {
+      background-image: linear-gradient(to right, black, blue);
+    }
+
+    .output { 
+      height: 1.5em;
+      width: 60%;
+      text-align: center;
+      vertical-align: middle;
+      background-color: rgb(0, 0, 0);
+      color: white;
+      padding-top: 7px;
+    }
+  </style>
+</head>
+
+<body>
+  <h3 class="text_align_center">
+    <i><u> DEMO-6:</u></i>
+  </h3>
+  <br />
+  <h3 class="text_align_center">RGB Color Chooser.</h3>
+  <br />
+  <div class="display_flex">
+    <div class="container diaplay_flex">
+      <!-- Outout       -->
+      <div class="display_flex">
+        <div class="output" id="output"></div>
+      </div>
+      <!-- red -->
+      <div class="display_flex input">
+        <div class="letter_div">
+          <p class="letter">R :</p>
+        </div>
+        <div class="number_div">
+          <input class="number" type="number" id="number_red" name="red" min="0" max="255" value="128"
+            oninput="change_function(this.type, this.name)" />
+        </div>
+        <div class="range_div">
+          <input class="range red" type="range" id="range_red" name="red" min="0" max="255" value="128"
+            oninput="change_function(this.type, this.name)" />
+        </div>
+      </div>
+      <!-- Green -->
+      <div class="display_flex input">
+        <div class="letter_div">
+          <p class="letter">G :</p>
+        </div>
+        <div class="number_div">
+          <input class="number" type="number" id="number_green" name="green" min="0" max="255" value="128"
+            oninput="change_function(this.type, this.name)" />
+        </div>
+        <div class="range_div">
+          <input class="range green" type="range" id="range_green" name="green" min="0" max="255" value="128"
+            oninput="change_function(this.type, this.name)" />
+        </div>
+      </div>
+      <!-- blue -->
+      <div class="display_flex input">
+        <div class="letter_div">
+          <p class="letter">B :</p>
+        </div>
+        <div class="number_div">
+          <input class="number" type="number" id="number_blue" name="blue" min="0" max="255" value="128"
+            oninput="change_function(this.type, this.name)" />
+        </div>
+        <div class="range_div">
+          <input class="range blue" type="range" id="range_blue" name="blue" min="0" max="255" value="128"
+            oninput="change_function(this.type, this.name)" />
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+
+<script>
+  var number_red = document.getElementById("number_red");
+  var number_green = document.getElementById("number_green");
+  var number_blue = document.getElementById("number_blue");
+  var range_red = document.getElementById("range_red");
+  var range_green = document.getElementById("range_green");
+  var range_blue = document.getElementById("range_blue");
+  function change_function(type, name) {
+    if (type == "number") {
+      text1 = "number_";
+      text2 = "range_";
+    } else {
+      text1 = "range_";
+      text2 = "number_";
+    }
+    pass_id = text1 + name;
+    target_id = text2 + name;
+    var pass_id_value = document.getElementById(pass_id).value;
+    document.getElementById(target_id).value = pass_id_value
+    oninput_output_color();
+  }
+  function oninput_output_color() {
+    output_colour = "RGB("+number_red.value+","+number_green.value+","+number_blue.value+")";
+    document.getElementById("output").style.backgroundColor = output_colour;
+    document.getElementById("output").innerHTML = output_colour;
+  }
+  window.onload = oninput_output_color();
+</script>
+
+
+
+<!-- <script>
+    function number(type){      
+    pass_id = "number_"+type;
+    target_id = "range_"+type;
+    var pass_id_value = document.getElementById(pass_id).value;
+    document.getElementById(target_id).value = pass_id_value
+    console.log (pass_id, pass_id_value);
+    oninput_output_color();  
+  }
+  function range(type){    
+    pass_id = "range_"+type;
+    target_id = "number_"+type;
+    var pass_id_value = document.getElementById(pass_id).value;
+    document.getElementById(target_id).value = pass_id_value
+    console.log (pass_id, pass_id_value);
+    oninput_output_color();  
+  }
+</script> -->
+
+
+<!-- <script>
+  var number_red = document.getElementById("number_red");
+  var number_green = document.getElementById("number_green");
+  var number_blue = document.getElementById("number_blue");
+  var range_red = document.getElementById("range_red");
+  var range_green = document.getElementById("range_green");
+  var range_blue = document.getElementById("range_blue");
+  number_red.oninput = function (a) {
+    range_red.value = a.target.value;
+    oninput_output_color();
+  };
+  range_red.oninput = function (a) {
+    number_red.value = a.target.value;
+    oninput_output_color();
+  };
+  number_green.oninput = function (a) {
+    range_green.value = a.target.value;
+    oninput_output_color();
+  };
+  range_green.oninput = function (a) {
+    number_green.value = a.target.value;
+    oninput_output_color();
+  };
+  number_blue.oninput = function (a) {
+    range_blue.value = a.target.value;
+    oninput_output_color();
+  };
+  range_blue.oninput = function (a) {
+    number_blue.value = a.target.value;
+    oninput_output_color();
+  };
+
+</script> -->

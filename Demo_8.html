@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Java Script Demo 8</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .display_flex {
+        display: flex;
+        justify-content: center;
+      }
+      .display_flex > div{
+       
+        width: 70px;
+        
+        margin: 5px;
+        text-align: center;
+        height: 75px;
+        font-size: 30px;
+      }
+
+      .text_align_center {
+        text-align: center;
+      }
+
+      .flex_wrap {
+        flex-wrap: wrap;
+      }
+
+      .flex_no_wrap {
+        flex-wrap: nowrap;
+      }
+
+      .container {
+        width: 50%;
+        background-color: rgb(224, 224, 224);
+      }
+      button {
+        width: 100%;
+        height: 100%;
+        border: 1px solid black;
+        border-radius: 10px;
+        font-size: 2em;
+      }
+      input {
+        width: 100%;
+        height: 100%;
+        border: 1px solid black;
+        border-radius: 10px;
+        text-align: center;
+        font-size: 1.3em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h3 class="text_align_center">
+      <i><u> DEMO-8:</u></i>
+    </h3>
+    <br />
+    <h3 class="text_align_center">Increment Decrement Value.</h3>
+    <br />
+    <div class="display_flex">
+        <div class="inner_div"><button onclick="Decrement();" >-</button></div>
+        <div class="inner_div" ><input type="text" id="number" value="0" readonly></div>
+        <div class="inner_div"><button onclick="Increment();">+</button></div>
+    </div>
+  </body>
+
+  </html>
+
+  <script>
+    function Increment(){
+      number_get();
+      number.value = num + 1;
+    }
+    function Decrement(){
+      number_get();
+      number.value = num - 1;
+    }
+    function number_get(){
+      return  num = parseInt(document.getElementById("number").value);
+    }
+  </script>

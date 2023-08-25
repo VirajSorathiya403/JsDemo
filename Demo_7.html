@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Java Script Demo 7</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .display_flex {
+        display: flex;
+        justify-content: center;
+      }
+
+      .text_align_center {
+        text-align: center;
+      }
+
+      .flex_wrap {
+        flex-wrap: wrap;
+      }
+      .flex_no_wrap {
+        flex-wrap: nowrap;
+      }
+      .container {
+        width: 50%;
+        background-color: rgb(224, 224, 224);
+      }
+      .try{
+        margin-top: 20px;
+        height: 30px;
+        width: 50px;
+        color: white;
+        background-color: black;
+        border: 2px solid black;
+        text-decoration: underline;
+        border-radius: 6px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h3 class="text_align_center">
+      <i><u> DEMO-7:</u></i>
+    </h3>
+    <br />
+    <h3 class="text_align_center">Clone HTML & Append To Body on Click.</h3>
+    <br />
+    <div class="display_flex">
+      <div class="container diaplay_flex flex_wrap">
+        <div class="list1">
+          <ul id="list_1">
+            <li id="coffee">Coffee</li>
+            <li id="tea">Tea</li>
+          </ul>
+        </div>
+        <br />
+        <br />
+        <div class="list2">
+          <ul id="list_2">
+            <li id="water">Water</li>
+            <li id="milk">Milk</li>
+          </ul>
+        </div>
+        <br />
+        <div>Click The button to copy an item from one list to another.</div>
+        <div><button class="try" onclick="clone_list_item()">Try it</button></div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  function clone_list_item() {
+    var get_list = document.getElementById("milk").innerHTML;
+    var new_list_item = document.createElement("li");
+    var text = document.createTextNode(get_list);
+    new_list_item.appendChild(text);
+    document.getElementById("list_1").appendChild(new_list_item);
+  }
+</script>

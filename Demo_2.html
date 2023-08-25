@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Java Script Demo 2</title>
+    <style>
+    .display_flex{
+      display: flex;
+      justify-content: center;
+    }
+    .text_align_center{
+      text-align: center;
+    }
+    button{
+      margin-left: 10px;
+    }
+    </style>
+  </head>
+
+  <body>
+    <h3 class="text_align_center">
+      <i><u> DEMO-2:</u></i>
+    </h3>
+    <p id="para" class="text_align_center">You Can Show and Hide me with this buttons.</p>
+    <div class="display_flex">   
+    <button onclick="hide()">Hide</button>
+    <button onclick="show()">Show</button>
+  </body>
+</html>
+
+
+
+<script>
+  function hide(){
+    document.getElementById('para').style.visibility= "hidden"
+  }
+  function show(){
+    document.getElementById('para').style.visibility="visible"
+  }
+</script>
